@@ -1,11 +1,12 @@
-using EasyCommandLine.Core;
+using AutoCtor;
 using EasyCommandLine.Core.Interfaces;
 
 namespace EasyCommandLine.Commands.Hello;
 
-public class HelloCommandOptions : ICommandOptions
+[AutoConstruct]
+public partial class HelloCommandOptions : ICommandOptions
 {
     // Automatic binding with System.CommandLine.NamingConventionBinder
-    public string To { get; init; } = string.Empty;
-    public string Color { get; init; } = string.Empty;
+    public string To { get; init; }
+    public string Color { get; init; }
 }

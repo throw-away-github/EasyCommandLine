@@ -4,10 +4,16 @@
         <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <IsAotCompatible>true</IsAotCompatible>
     </PropertyGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\EasyCommandLine.Core\EasyCommandLine.Core.csproj" />
     </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="AutoCtor" Version="1.2.0" />
+    </ItemGroup>
+
 
 </Project>

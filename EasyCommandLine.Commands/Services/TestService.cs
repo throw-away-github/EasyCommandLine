@@ -1,17 +1,15 @@
+using AutoCtor;
+using Microsoft.Extensions.Logging;
 using Spectre.Console;
 
 namespace EasyCommandLine.Commands.Services;
 
-public class TestService
+[AutoConstruct]
+public partial class TestService
 {
     private readonly IAnsiConsole _console;
     
-    public TestService(IAnsiConsole console)
-    {
-        _console = console;
-    }
-    
-    public async Task Run(CancellationToken cancellationToken = default)
+    public async Task Run(int iterations, CancellationToken cancellationToken = default)
     {
         // show a animated progress bar
         var progress = _console.Progress()
@@ -31,8 +29,9 @@ public class TestService
                     await Task.Delay(250, cancellationToken);
 
                     // Increment
-                    task1.Increment(1.5);
-                    task2.Increment(0.5);
+                    var increment = 25 / (double)iterations;
+                    task1.Increment(increment);
+                    task2.Increment(increment/2);
                 }
             }).ConfigureAwait(false);
     }
