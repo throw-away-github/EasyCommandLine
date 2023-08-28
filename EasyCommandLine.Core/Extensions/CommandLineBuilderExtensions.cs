@@ -9,12 +9,21 @@ using Spectre.Console;
 
 namespace EasyCommandLine.Core.Extensions;
 
+/// <summary>
+/// Extension methods for <see cref="CommandLineBuilder"/>.
+/// </summary>
 [UsedImplicitly (ImplicitUseTargetFlags.WithMembers)]
 public static class CommandLineBuilderExtensions
 {
     public static CommandLineBuilder AddTitle(this CommandLineBuilder builder, string title) =>
         builder.AddTitle(title, Color.White);
     
+    /// <summary>
+    /// Adds a block title to the command line application's help text.
+    /// </summary>
+    /// <param name="builder">The <see cref="CommandLineBuilder"/> to add the title to.</param>
+    /// <param name="title">The title to add.</param>
+    /// <param name="color">The color of the title.</param>
     public static CommandLineBuilder AddTitle(this CommandLineBuilder builder, string title, Color color)
     {
         if (string.IsNullOrWhiteSpace(title))
@@ -40,6 +49,17 @@ public static class CommandLineBuilderExtensions
         });
     }
     
+    /// <summary>
+    /// Configure dependency injection for the command line application using the specified <paramref name="configureHost"/> action.
+    /// </summary>
+    /// <remarks>
+    /// This method configures the host using the <see cref="Host.CreateDefaultBuilder(string[])"/>
+    /// static method, which loads host and application configuration from environment variables and
+    /// and then calls the specified <paramref name="configureHost"/> action.
+    /// </remarks>
+    /// <param name="builder">The <see cref="CommandLineBuilder"/> to configure.</param>
+    /// <param name="configureHost">The action to configure the host.</param>
+    /// <returns>The configured <see cref="CommandLineBuilder"/>.</returns>
     public static CommandLineBuilder UseDependencyInjection(this CommandLineBuilder builder, Action<IHostBuilder> configureHost)
     {
         return builder.UseHost(Host.CreateDefaultBuilder, hostBuilder =>
@@ -53,6 +73,9 @@ public static class CommandLineBuilderExtensions
         });
     }
     
+    /// <summary>
+    /// Builds a <see cref="CommandLineBuilder"/> and invokes it with the specified <paramref name="args"/>.
+    /// </summary>
     public static Task<int> RunAsync(this CommandLineBuilder builder, string[] args) =>
         builder.Build().InvokeAsync(args);
 }

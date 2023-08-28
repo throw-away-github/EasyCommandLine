@@ -6,6 +6,25 @@
         <Nullable>enable</Nullable>
         <IsAotCompatible>true</IsAotCompatible>
     </PropertyGroup>
+    
+    <PropertyGroup>
+        <IsPackable>true</IsPackable>
+        <Authors>tcbrooks</Authors>
+        <Company>tcbrooks</Company>
+        <Description>A library to simplify creating beautiful and performant command-line apps.</Description>
+        <PackageId>EasyCommandLine</PackageId>
+        <VersionPrefix>1.0.0</VersionPrefix>
+        <VersionSuffix>alpha</VersionSuffix>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <PackageReleaseNotes>Initial release</PackageReleaseNotes>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    </PropertyGroup>
+    
+    <PropertyGroup>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    </PropertyGroup>
 
     <ItemGroup>
         <PackageReference Include="JetBrains.Annotations" Version="2023.2.0" />
