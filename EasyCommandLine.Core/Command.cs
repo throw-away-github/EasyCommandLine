@@ -11,13 +11,13 @@ namespace EasyCommandLine.Core;
 /// <typeparam name="TOptionsHandler">The handler which will be executed.</typeparam>
 public abstract class Command<
     [DynAccess(PublicTypes)] TOptions,
-    [DynAccess(PublicConstructors)] TOptionsHandler> : System.CommandLine.Command
+    [DynAccess(PublicConstructors)] TOptionsHandler> : System.CommandLine.CliCommand
     where TOptions : class, ICommandOptions
     where TOptionsHandler : class, ICommandOptionsHandler<TOptions>
 {
     /// <inheritdoc />
     protected Command(string name, string description) : base(name, description)
     {
-        Handler = CommandHandlerProxy.HandleAsync<TOptions, TOptionsHandler>();
+       Action = CommandHandlerProxy.HandleAsync<TOptions, TOptionsHandler>();
     }
 }

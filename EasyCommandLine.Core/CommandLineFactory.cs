@@ -1,49 +1,54 @@
 using System.CommandLine;
-using System.CommandLine.Builder;
+using System.CommandLine.Help;
 using JetBrains.Annotations;
 
 namespace EasyCommandLine.Core;
 
 /// <summary>
-/// Factory for creating <see cref="CommandLineBuilder"/> instances.
+/// Factory for creating <see cref="CliConfiguration"/> instances.
 /// </summary>
 [UsedImplicitly]
 public static class CommandLineFactory
 {
     /// <summary>
-    /// Creates a <see cref="CommandLineBuilder"/> with default settings.
+    /// Creates a <see cref="CliConfiguration"/> with default settings.
     /// </summary>
     /// <param name="rootCommand">The main action that the application performs.</param>
-    public static CommandLineBuilder CreateDefaultBuilder(RootCommand rootCommand)
+    public static CliConfiguration CreateDefaultBuilder(CliRootCommand rootCommand)
     {
-        return new CommandLineBuilder(rootCommand).UseDefaults();
+        
+        return new CliConfiguration(rootCommand);
     }
     
     /// <summary>
-    /// Creates a <see cref="CommandLineBuilder"/> with default settings.
+    /// Creates a <see cref="CliConfiguration"/> with default settings.
     /// </summary>
     /// <param name="description">The description of the main action.</param>
     /// <param name="commands">The sub actions that the application performs.</param>
-    public static CommandLineBuilder CreateDefaultBuilder(string description, params Command[] commands)
+    public static CliConfiguration CreateDefaultBuilder(string description, params CliCommand[] commands)
     {
-        var rootCommand = new RootCommand(description);
+        var rootCommand = new CliRootCommand(description)
+        {
+            TreatUnmatchedTokensAsErrors = true
+        };
+        
         foreach (var command in commands)
         {
-            rootCommand.AddCommand(command);
+            rootCommand.Add(command);
         }
         return CreateDefaultBuilder(rootCommand);
     }
     
     /// <summary>
-    /// Creates a <see cref="CommandLineBuilder"/> with default settings.
+    /// Creates a <see cref="CliConfiguration"/> with default settings.
     /// </summary>
     /// <param name="rootCommand">The name of the main action.</param>
     /// <param name="commands">The sub actions that the application performs.</param>
-    public static CommandLineBuilder CreateDefaultBuilder(RootCommand rootCommand, params Command[] commands)
+    public static CliConfiguration CreateDefaultBuilder(CliRootCommand rootCommand, params CliCommand[] commands)
     {
         foreach (var command in commands)
         {
-            rootCommand.AddCommand(command);
+            rootCommand.Add(command);
         }
         return CreateDefaultBuilder(rootCommand);
     }

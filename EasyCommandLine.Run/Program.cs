@@ -9,7 +9,7 @@ var builder = CommandLineFactory.CreateDefaultBuilder(
     description: "A simple command line application", 
     new HelloCommand(), new TestCommand());
 
-builder.AddTitle("EasyCommandLine");
+builder.AddTitle("EzCommand");
 builder.UseDependencyInjection(services =>
 {
     services.AddSingleton<TestService>();

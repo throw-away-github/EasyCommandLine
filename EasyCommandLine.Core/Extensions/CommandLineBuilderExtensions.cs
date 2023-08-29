@@ -1,7 +1,6 @@
-using System.CommandLine.Builder;
+using System.CommandLine;
 using System.CommandLine.Help;
 using System.CommandLine.Hosting;
-using System.CommandLine.Parsing;
 using JetBrains.Annotations;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -10,38 +9,51 @@ using Spectre.Console;
 namespace EasyCommandLine.Core.Extensions;
 
 /// <summary>
-/// Extension methods for <see cref="CommandLineBuilder"/>.
+/// Extension methods for <see cref="CliConfiguration"/>.
 /// </summary>
 [UsedImplicitly (ImplicitUseTargetFlags.WithMembers)]
-public static class CommandLineBuilderExtensions
+public static class CliConfigurationExtensions
 {
-    public static CommandLineBuilder AddTitle(this CommandLineBuilder builder, string title) =>
+    public static CliConfiguration AddTitle(this CliConfiguration builder, string title) =>
         builder.AddTitle(title, Color.White);
     
     /// <summary>
     /// Adds a block title to the command line application's help text.
     /// </summary>
-    /// <param name="builder">The <see cref="CommandLineBuilder"/> to add the title to.</param>
+    /// <param name="builder">The <see cref="CliConfiguration"/> to add the title to.</param>
     /// <param name="title">The title to add.</param>
     /// <param name="color">The color of the title.</param>
-    public static CommandLineBuilder AddTitle(this CommandLineBuilder builder, string title, Color color)
+    public static CliConfiguration AddTitle(this CliConfiguration builder, string title, Color color)
     {
         if (string.IsNullOrWhiteSpace(title))
         {
-            title = builder.Command.Description ?? builder.Command.Name;
+            title = builder.RootCommand.Description ?? builder.RootCommand.Name;
         }
-        return builder.UseHelp(helpContext =>
+
+        var parseResult = builder.Parse("-h");
+        if (parseResult.Action is HelpAction helpAction)
         {
-            helpContext.HelpBuilder.CustomizeLayout(
-                _ => HelpBuilder.Default
-                    .GetLayout()
-                    .Skip(1) // Skip the default command description section.
-                    .Prepend(
-                        _ => AnsiConsole.Write(new FigletText(title).Color(color))));
-        });
+            helpAction.Builder.CustomizeLayout(CustomLayout);
+        }
+
+        return builder;
+        
+        IEnumerable<Func<HelpContext, bool>> CustomLayout(HelpContext _)
+        {
+            yield return _ =>
+            {
+                AnsiConsole.Write(new FigletText(title).Color(color)); 
+                return true;
+            };
+
+            foreach (var section in HelpBuilder.Default.GetLayout().Skip(1))
+            {
+                yield return section;
+            }
+        }
     }
     
-    public static CommandLineBuilder UseDependencyInjection(this CommandLineBuilder builder, Action<IServiceCollection> configureServices)
+    public static CliConfiguration UseDependencyInjection(this CliConfiguration builder, Action<IServiceCollection> configureServices)
     {
         return builder.UseDependencyInjection(hostBuilder =>
         {
@@ -57,10 +69,10 @@ public static class CommandLineBuilderExtensions
     /// static method, which loads host and application configuration from environment variables and
     /// and then calls the specified <paramref name="configureHost"/> action.
     /// </remarks>
-    /// <param name="builder">The <see cref="CommandLineBuilder"/> to configure.</param>
+    /// <param name="builder">The <see cref="CliConfiguration"/> to configure.</param>
     /// <param name="configureHost">The action to configure the host.</param>
-    /// <returns>The configured <see cref="CommandLineBuilder"/>.</returns>
-    public static CommandLineBuilder UseDependencyInjection(this CommandLineBuilder builder, Action<IHostBuilder> configureHost)
+    /// <returns>The configured <see cref="CliConfiguration"/>.</returns>
+    public static CliConfiguration UseDependencyInjection(this CliConfiguration builder, Action<IHostBuilder> configureHost)
     {
         return builder.UseHost(Host.CreateDefaultBuilder, hostBuilder =>
         {
@@ -74,8 +86,8 @@ public static class CommandLineBuilderExtensions
     }
     
     /// <summary>
-    /// Builds a <see cref="CommandLineBuilder"/> and invokes it with the specified <paramref name="args"/>.
+    /// Builds a <see cref="CliConfiguration"/> and invokes it with the specified <paramref name="args"/>.
     /// </summary>
-    public static Task<int> RunAsync(this CommandLineBuilder builder, string[] args) =>
-        builder.Build().InvokeAsync(args);
+    public static Task<int> RunAsync(this CliConfiguration builder, string[] args) =>
+        builder.InvokeAsync(args);
 }

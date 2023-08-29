@@ -1,4 +1,5 @@
 using System.CommandLine.Invocation;
+using System.CommandLine.NamingConventionBinder;
 using EasyCommandLine.Core.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -9,7 +10,7 @@ namespace EasyCommandLine.Core;
 
 public static class CommandHandlerProxy
 {
-    public static ICommandHandler HandleAsync<[DynAccess(PublicTypes)] T, [DynAccess(PublicConstructors)] T2>()
+    public static BindingHandler HandleAsync<[DynAccess(PublicTypes)] T, [DynAccess(PublicConstructors)] T2>()
         where T : class, ICommandOptions
         where T2 : class, ICommandOptionsHandler<T>
     {

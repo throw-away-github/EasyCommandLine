@@ -7,7 +7,10 @@
     <Nullable>enable</Nullable>
     <PublishAot>true</PublishAot>
     <InvariantGlobalization>true</InvariantGlobalization>
-    <RootNamespace>EasyCommandLine</RootNamespace>
+
+    <AssemblyTitle>EasyCommandLine.Run</AssemblyTitle>
+    <AssemblyName>ezcommand</AssemblyName>
+    <TargetName>ezcommand</TargetName>
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,9 +18,9 @@
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0-preview.7.23375.6" />
     <PackageReference Include="Spectre.Console" Version="0.47.1-preview.0.11" />
     <PackageReference Include="Spectre.Console.Cli" Version="0.47.1-preview.0.11" />
-    <PackageReference Include="System.CommandLine" Version="2.0.0-beta4.22272.1" />
-    <PackageReference Include="System.CommandLine.Hosting" Version="0.4.0-alpha.22272.1" />
-    <PackageReference Include="System.CommandLine.NamingConventionBinder" Version="2.0.0-beta4.22272.1" />
+    <PackageReference Include="System.CommandLine" Version="2.0.0-beta4.23407.1" />
+    <PackageReference Include="System.CommandLine.Hosting" Version="0.4.0-alpha.23407.1" />
+    <PackageReference Include="System.CommandLine.NamingConventionBinder" Version="2.0.0-beta4.23407.1" />
   </ItemGroup>
 
   <ItemGroup>
