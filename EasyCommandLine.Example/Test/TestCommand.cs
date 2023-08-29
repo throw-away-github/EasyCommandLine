@@ -2,7 +2,7 @@ using System.CommandLine;
 using EasyCommandLine.Core;
 using EasyCommandLine.Core.Extensions;
 
-namespace EasyCommandLine.Commands.Test;
+namespace EasyCommandLine.Example.Test;
 
 public class TestCommand : Command<TestCommandOptions, TestCommandsHandler>
 {

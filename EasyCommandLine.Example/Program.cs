@@ -1,6 +1,6 @@
-﻿using EasyCommandLine.Commands.Hello;
-using EasyCommandLine.Commands.Services;
-using EasyCommandLine.Commands.Test;
+using EasyCommandLine.Example.Hello;
+using EasyCommandLine.Example.Services;
+using EasyCommandLine.Example.Test;
 using EasyCommandLine.Core;
 using EasyCommandLine.Core.Extensions;
 using Microsoft.Extensions.DependencyInjection;

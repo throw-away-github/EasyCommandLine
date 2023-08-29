@@ -1,9 +1,9 @@
 using AutoCtor;
-using EasyCommandLine.Commands.Services;
+using EasyCommandLine.Example.Services;
 using EasyCommandLine.Core.Interfaces;
 using Microsoft.Extensions.Logging;
 
-namespace EasyCommandLine.Commands.Test;
+namespace EasyCommandLine.Example.Test;
 
 [AutoConstruct]
 public partial class TestCommandsHandler : ICommandOptionsHandler<TestCommandOptions>

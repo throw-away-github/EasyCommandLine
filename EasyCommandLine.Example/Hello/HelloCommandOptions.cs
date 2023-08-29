@@ -1,7 +1,7 @@
 using AutoCtor;
 using EasyCommandLine.Core.Interfaces;
 
-namespace EasyCommandLine.Commands.Hello;
+namespace EasyCommandLine.Example.Hello;
 
 [AutoConstruct]
 public partial class HelloCommandOptions : ICommandOptions

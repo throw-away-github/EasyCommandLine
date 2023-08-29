@@ -1,7 +1,7 @@
 using AutoCtor;
 using EasyCommandLine.Core.Interfaces;
 
-namespace EasyCommandLine.Commands.Test;
+namespace EasyCommandLine.Example.Test;
 
 [AutoConstruct]
 public partial class TestCommandOptions : ICommandOptions

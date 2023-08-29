@@ -3,13 +3,12 @@ using System.CommandLine.Parsing;
 using EasyCommandLine.Core;
 using EasyCommandLine.Core.Extensions;
 
-namespace EasyCommandLine.Commands.Hello;
+namespace EasyCommandLine.Example.Hello;
 
 public class HelloCommand : Command<HelloCommandOptions, HelloCommandOptionsHandler>
 {
     public HelloCommand() : base("hello", "Say hello to someone")
     {
-        
         Add(ToOption.WithShortAlias());
         Add(ColorOption.WithShortAlias());
     }

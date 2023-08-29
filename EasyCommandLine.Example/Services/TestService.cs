@@ -2,7 +2,7 @@ using AutoCtor;
 using Microsoft.Extensions.Logging;
 using Spectre.Console;
 
-namespace EasyCommandLine.Commands.Services;
+namespace EasyCommandLine.Example.Services;
 
 [AutoConstruct]
 public partial class TestService

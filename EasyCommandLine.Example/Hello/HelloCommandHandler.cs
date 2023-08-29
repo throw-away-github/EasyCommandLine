@@ -1,9 +1,9 @@
 using AutoCtor;
-using EasyCommandLine.Commands.Services;
+using EasyCommandLine.Example.Services;
 using EasyCommandLine.Core.Interfaces;
 using Spectre.Console;
 
-namespace EasyCommandLine.Commands.Hello;
+namespace EasyCommandLine.Example.Hello;
 
 [AutoConstruct]
 public partial class HelloCommandOptionsHandler : ICommandOptionsHandler<HelloCommandOptions>
