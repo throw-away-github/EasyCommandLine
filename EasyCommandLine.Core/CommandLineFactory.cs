@@ -29,7 +29,17 @@ public static class CommandLineFactory
     {
         var rootCommand = new CliRootCommand(description)
         {
-            TreatUnmatchedTokensAsErrors = true
+            TreatUnmatchedTokensAsErrors = true,
+            Validators =
+            {
+                result =>
+                {
+                    if (!result.Children.Any())
+                    {
+                        result.AddError("A command is required.");
+                    }
+                }
+            }
         };
         
         foreach (var command in commands)

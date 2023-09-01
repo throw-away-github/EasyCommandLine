@@ -14,7 +14,11 @@ public partial class TestService
         // show a animated progress bar
         var progress = _console.Progress()
             .AutoClear(false)
-            .Columns(new TaskDescriptionColumn(), new ProgressBarColumn(), new PercentageColumn(), new RemainingTimeColumn(), new SpinnerColumn());
+            .Columns(new TaskDescriptionColumn(), 
+                new ProgressBarColumn(), 
+                new PercentageColumn(), 
+                new RemainingTimeColumn(), 
+                new SpinnerColumn());
 
         await progress
             .StartAsync(async ctx =>
@@ -33,6 +37,7 @@ public partial class TestService
                     task1.Increment(increment);
                     task2.Increment(increment/2);
                 }
-            }).ConfigureAwait(false);
+            })
+            .ConfigureAwait(false);
     }
 }

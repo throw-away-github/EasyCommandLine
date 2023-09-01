@@ -9,30 +9,27 @@ public class HelloCommand : Command<HelloCommandOptions, HelloCommandOptionsHand
 {
     public HelloCommand() : base("hello", "Say hello to someone")
     {
-        Add(ToOption.WithShortAlias());
-        Add(ColorOption.WithShortAlias());
-    }
-    
-    private static readonly CliOption<string> ToOption = new( "--to")
-    {
-        Arity = ArgumentArity.ExactlyOne,
-        Required = true,
-        Description = "The person to say hello to",
-        Validators =
+        Add(new CliOption<string>(name: "--to")
         {
-            new Action<OptionResult>(result =>
+            Arity = ArgumentArity.ExactlyOne,
+            Aliases = { "-t" },
+            Required = true,
+            Description = "The person to say hello to",
+            Validators =
             {
-                if (result.Tokens.Count <= 0) 
-                    result.AddError("The --to option requires a value");
-            })
-        }
-    };
-    
-    private static readonly CliOption<string> ColorOption = new CliOption<string>(name: "--color")
-        {
-            Aliases = { "-c" },
-            Description = "The color to use for the greeting",
-            DefaultValueFactory = _ => "teal",
-        }
-        .FromAmong("white", "red", "green", "blue", "yellow", "teal", "magenta", "tan");
+                new Action<OptionResult>(result =>
+                {
+                    if (result.Tokens.Count <= 0)
+                        result.AddError("The --to option requires a value");
+                })
+            }
+        });
+        Add(new CliOption<string>(name: "--color") 
+            {
+                Aliases = { "-c" },
+                Description = "The color to use for the greeting",
+                DefaultValueFactory = _ => "teal",
+            }
+            .FromAmong("white", "red", "green", "blue", "yellow", "teal", "magenta", "tan"));
+    }
 }
