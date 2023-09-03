@@ -8,7 +8,7 @@ namespace EasyCommandLine.Core.Interfaces;
 /// </summary>
 /// <typeparam name="TOptions">The options which are passed to the handler.</typeparam>
 [DynAccess(PublicConstructors)]
-public interface ICommandOptionsHandler<in TOptions>
+public interface ICommandOptionsHandler<in TOptions> where TOptions : class, ICommandOptions
 {
     /// <summary>
     /// Called when the associated command is invoked on the command line.
