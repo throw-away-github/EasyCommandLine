@@ -1,0 +1,25 @@
+<Project>
+
+    <Import Project="Sdk.props" Sdk="Microsoft.DotNet.Arcade.Sdk"/>
+
+    <PropertyGroup>
+        <Copyright>$(CopyrightNetFoundation)</Copyright>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+        <DebugType>embedded</DebugType>
+        <DebugSymbols>true</DebugSymbols>
+        <LangVersion>Latest</LangVersion>
+        <NoWarn>$(NoWarn);CS8002</NoWarn>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <CopyrightMicrosoft>© Trevin Brooks. All rights reserved.</CopyrightMicrosoft>
+        <CopyrightNetFoundation>© Trevin Brooks and Contributors</CopyrightNetFoundation>
+        <PackageIcon>Icon.png</PackageIcon>
+        <PackageIconFullPath>$(MSBuildThisFileDirectory)assets\EzCommandLine.png</PackageIconFullPath>
+        <ExcludeFromSourceBuild>true</ExcludeFromSourceBuild>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+        <DebugType>portable</DebugType>
+    </PropertyGroup>
+
+</Project>
