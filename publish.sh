@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+source="${BASH_SOURCE[0]}"
+
+# resolve $SOURCE until the file is no longer a symlink
+while [[ -h $source ]]; do
+  scriptroot="$( cd -P "$( dirname "$source" )" && pwd )"
+  source="$(readlink "$source")"
+
+  # if $source was a relative symlink, we need to resolve it relative to the path where 
+  # the symlink file was located
+  [[ $source != /* ]] && source="$scriptroot/$source"
+done
+scriptroot="$( cd -P "$( dirname "$source" )" && pwd )"
+"$scriptroot/eng/common/build.sh" --clean
+"$scriptroot/eng/common/build.sh" --restore --build --test --pack --ci "$@"
+
+# find the nupkg file we just built in the artifacts folder
+file=$(find "$scriptroot/artifacts" -name '*.nupkg' | head -n 1)
+dotnet nuget push -s "$NUGET_FEED" -k "$NUGET_API_KEY" "$file"

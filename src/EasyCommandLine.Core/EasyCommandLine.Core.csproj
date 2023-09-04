@@ -1,0 +1,64 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <IsAotCompatible>true</IsAotCompatible>
+    </PropertyGroup>
+    
+    <PropertyGroup>
+        <IsPackable>true</IsPackable>
+        <Authors>tcbrooks</Authors>
+        <Company>tcbrooks</Company>
+        <Description>A library to simplify creating beautiful and performant command-line apps.</Description>
+        <PackageId>EzCommandLine.Net</PackageId>
+
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <PackageReleaseNotes>Initial release</PackageReleaseNotes>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    </PropertyGroup>
+    
+    <PropertyGroup>
+<!--        <IncludeSymbols>true</IncludeSymbols>-->
+        <!--
+        Note: This embeds the pdb into the nupkg, which is not recommended for production packages.
+        Will need to figure out a better way to deal with this.
+        See 
+        https://learn.microsoft.com/en-us/dotnet/standard/library-guidance/nuget#symbol-packages
+        https://github.com/dotnet/sourcelink#alternative-pdb-distribution
+        https://github.com/NuGet/Home/wiki/NuGet-Package-Debugging-&-Symbols-Improvements
+        -->
+<!--        <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>-->
+        <!--
+        We can create a separate symbol package, while still embedding the pdb in the main package.
+        It seems they both get a copy of the pdb.
+        -->
+<!--        <SymbolPackageFormat>snupkg</SymbolPackageFormat>-->
+        <!--Below sets ContinuousIntegrationBuild to true when building in Release mode, 
+        will need to change once I get proper CI set up.-->
+<!--        <ContinuousIntegrationBuild Condition="'$(Configuration)' == 'Release'">true</ContinuousIntegrationBuild>-->
+<!--        <EmbedUntrackedSources>true</EmbedUntrackedSources>-->
+<!--        <PublishRepositoryUrl>true</PublishRepositoryUrl>-->
+    </PropertyGroup>
+
+
+    <PropertyGroup Condition="'$(TargetFramework)' == '$(TargetFrameworkForNETSDK)'">
+        <IsTrimmable>true</IsTrimmable>
+        <EnableTrimAnalyzer>true</EnableTrimAnalyzer>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="JetBrains.Annotations" Version="2023.2.0" />
+        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Spectre.Console" Version="0.47.0" />
+        <PackageReference Include="Spectre.Console.Cli" Version="0.47.0" />
+        <PackageReference Include="System.CommandLine" Version="2.0.0-beta4.23407.1" />
+        <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0-preview.7.23375.6" />
+        <PackageReference Include="System.CommandLine.Hosting" Version="0.4.0-alpha.23407.1" />
+        <PackageReference Include="System.CommandLine.NamingConventionBinder" Version="2.0.0-beta4.23407.1" />
+    </ItemGroup>
+</Project>
