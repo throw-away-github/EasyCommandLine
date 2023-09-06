@@ -255,6 +255,10 @@ function Write-LogIssue {
             $backgroundColor = [System.ConsoleColor]::Black
         }
     }
-
-    Write-Host $command -ForegroundColor $foregroundColor -BackgroundColor $backgroundColor
+    if ($backgroundColor -eq -1) {
+        Write-Host $command -ForegroundColor $foregroundColor
+    }
+    else {
+        Write-Host $command -ForegroundColor $foregroundColor -BackgroundColor $backgroundColor
+    }
 }

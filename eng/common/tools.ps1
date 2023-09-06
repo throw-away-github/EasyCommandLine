@@ -828,7 +828,7 @@ function MSBuild-Core() {
   }
 
   $env:ARCADE_BUILD_TOOL_COMMAND = "$($buildTool.Path) $cmdArgs"
-
+  Write-Host "Executing `n$($env:ARCADE_BUILD_TOOL_COMMAND)"
   $exitCode = Exec-Process $buildTool.Path $cmdArgs
 
   if ($exitCode -ne 0) {

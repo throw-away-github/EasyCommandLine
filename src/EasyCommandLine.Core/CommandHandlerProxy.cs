@@ -1,4 +1,3 @@
-using System.CommandLine.Invocation;
 using System.CommandLine.NamingConventionBinder;
 using EasyCommandLine.Core.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,7 +15,7 @@ public static class CommandHandlerProxy
         where T2 : class, ICommandOptionsHandler<T>
     {
         return AotHandler.Create<T, IHost, CancellationToken>(RunAsync);
-        
+
         async Task<int> RunAsync(T options, IHost host, CancellationToken token)
         {
             // The handler is created using the service provider from the host.
