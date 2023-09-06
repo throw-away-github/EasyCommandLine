@@ -1,0 +1,7 @@
+<Project>
+    <PropertyGroup>
+        <PublishToMSDL>false</PublishToMSDL>
+        <PublishToSymWeb>false</PublishToSymWeb>
+        <Publish>false</Publish>
+    </PropertyGroup>
+</Project>
