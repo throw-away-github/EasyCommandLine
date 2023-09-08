@@ -2,7 +2,7 @@ using System.CommandLine.NamingConventionBinder;
 using EasyCommandLine.Core.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Spectre.Console;
+using Microsoft.Extensions.Logging;
 using DynAccess = System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembersAttribute;
 using static EasyCommandLine.Core.DynamicAttributes;
 
@@ -27,13 +27,14 @@ public static class CommandHandlerProxy
             }
             catch (Exception e)
             {
+                var logger = host.Services.GetRequiredService<ILogger<T2>>();
                 if (e is not OperationCanceledException)
                 {
-                    AnsiConsole.WriteException(e, ExceptionFormats.ShortenEverything);
+                    logger.LogError(e, "An unhandled exception occurred while executing the command");
                     return 1;
                 }
 
-                AnsiConsole.MarkupLine("[yellow]Operation cancelled.[/]");
+                logger.LogWarning("The command was cancelled");
                 return 0;
             }
         }

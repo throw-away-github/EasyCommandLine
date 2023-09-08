@@ -2,7 +2,7 @@ using System.CommandLine.Hosting;
 using JetBrains.Annotations;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace EasyCommandLine.Core.Extensions;
+namespace EasyCommandLine.Extensions;
 
 /// <summary>
 /// Extension methods for <see cref="IServiceCollection"/>.

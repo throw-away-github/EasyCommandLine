@@ -1,7 +1,7 @@
 using System.CommandLine;
 using JetBrains.Annotations;
 
-namespace EasyCommandLine.Core.Extensions;
+namespace EasyCommandLine.Extensions;
 
 /// <summary>
 /// Extension methods for <see cref="CliOption"/>.
@@ -50,7 +50,7 @@ public static class OptionExtensions
     /// Configures the option to accept only the specified values.
     /// </summary>
     /// <remarks>
-    /// It is recommended to use <see cref="M:EasyCommandLine.Core.Extensions.OptionExtensions.FromAmong``1(System.CommandLine.CliOption{``0},System.String[])"/>
+    /// It is recommended to use <see cref="M:EasyCommandLine.Extensions.OptionExtensions.FromAmong``1(System.CommandLine.CliOption{``0},System.String[])"/>
     /// instead, as it also suggests the values as command line completions.
     /// </remarks>
     /// <param name="option">The option to configure.</param>

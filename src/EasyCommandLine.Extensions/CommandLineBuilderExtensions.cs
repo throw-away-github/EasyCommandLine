@@ -6,7 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Spectre.Console;
 
-namespace EasyCommandLine.Core.Extensions;
+namespace EasyCommandLine.Extensions;
 
 /// <summary>
 /// Extension methods for <see cref="CliConfiguration"/>.
@@ -78,8 +78,8 @@ public static class CliConfigurationExtensions
         {
             hostBuilder.ConfigureServices((_, services) =>
             {
-                services.SuppressStatusMessages();
-                services.AddSingleton(AnsiConsole.Console);
+                ServiceCollectionExtensions.SuppressStatusMessages(services);
+                ServiceCollectionServiceExtensions.AddSingleton(services, AnsiConsole.Console);
             });
             configureHost(hostBuilder);
         });

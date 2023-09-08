@@ -1,6 +1,6 @@
 using System.CommandLine;
 using EasyCommandLine.Core;
-using EasyCommandLine.Core.Extensions;
+using EasyCommandLine.Extensions;
 
 namespace EasyCommandLine.Example.Test;
 

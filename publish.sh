@@ -20,4 +20,5 @@ OfficialBuildId=$(date -u +%Y%m%d).1
 # find the nupkg file we just built in the artifacts folder
 # file=$(find "$scriptroot/artifacts" -name '*.nupkg' | head -n 1)
 # open "$file"
+# fd -I -e nupkg -x open
 dotnet nuget push -s "$NUGET_FEED" -k "$NUGET_API_KEY" "$scriptroot/artifacts/**/*.nupkg"

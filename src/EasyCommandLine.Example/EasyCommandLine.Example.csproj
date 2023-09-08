@@ -15,6 +15,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\EasyCommandLine.Core\EasyCommandLine.Core.csproj" />
+      <ProjectReference Include="..\EasyCommandLine.Extensions\EasyCommandLine.Extensions.csproj" />
     </ItemGroup>
 
     <ItemGroup>

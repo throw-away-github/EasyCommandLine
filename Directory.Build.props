@@ -3,7 +3,9 @@
     <Import Project="Sdk.props" Sdk="Microsoft.DotNet.Arcade.Sdk"/>
 
     <PropertyGroup>
-        <Copyright>$(CopyrightNetFoundation)</Copyright>
+        <Copyright>© tcbrooks and contributors.</Copyright>
+        <Authors>tcbrooks</Authors>
+        <Company>tcbrooks</Company>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
         <DebugType>embedded</DebugType>
@@ -11,11 +13,11 @@
         <LangVersion>Latest</LangVersion>
         <NoWarn>$(NoWarn);CS8002</NoWarn>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-        <CopyrightMicrosoft>© Trevin Brooks. All rights reserved.</CopyrightMicrosoft>
-        <CopyrightNetFoundation>© Trevin Brooks and Contributors</CopyrightNetFoundation>
         <PackageIcon>Icon.png</PackageIcon>
         <PackageIconFullPath>$(MSBuildThisFileDirectory)assets\EzCommandLine.png</PackageIconFullPath>
         <ExcludeFromSourceBuild>true</ExcludeFromSourceBuild>
+        <CopyrightMicrosoft>$(Copyright)</CopyrightMicrosoft>
+        <CopyrightNetFoundation>$(Copyright)</CopyrightNetFoundation>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">

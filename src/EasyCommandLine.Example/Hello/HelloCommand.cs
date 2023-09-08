@@ -1,7 +1,7 @@
 using System.CommandLine;
 using System.CommandLine.Parsing;
 using EasyCommandLine.Core;
-using EasyCommandLine.Core.Extensions;
+using EasyCommandLine.Extensions;
 
 namespace EasyCommandLine.Example.Hello;
 
