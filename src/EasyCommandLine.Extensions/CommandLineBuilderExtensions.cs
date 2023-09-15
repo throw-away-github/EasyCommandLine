@@ -78,8 +78,9 @@ public static class CliConfigurationExtensions
         {
             hostBuilder.ConfigureServices((_, services) =>
             {
-                ServiceCollectionExtensions.SuppressStatusMessages(services);
-                ServiceCollectionServiceExtensions.AddSingleton(services, AnsiConsole.Console);
+                services.SuppressStatusMessages();
+                services.AddSingleton(services);
+                services.AddSingleton(AnsiConsole.Console);
             });
             configureHost(hostBuilder);
         });

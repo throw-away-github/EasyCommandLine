@@ -22,6 +22,9 @@ public static class CommandHandlerProxy
             // This allows the handler to use true dependency injection, while remaining within the constraints of System.CommandLine.
             try
             {
+                if (host.Services.GetService<IServiceCollection>() is { } serviceCollection) 
+                    serviceCollection.AddSingleton(options);
+                
                 var handler = ActivatorUtilities.CreateInstance<T2>(host.Services);
                 return await handler.HandleAsync(options, token);
             }

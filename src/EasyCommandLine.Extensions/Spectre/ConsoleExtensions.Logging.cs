@@ -79,7 +79,7 @@ public static partial class ConsoleExtensions
 
     public static void ErrorInterpolated(this IAnsiConsole console, FormattableString text)
     {
-        console.Error(EscapeInterpolated(text), false);
+        console.Error(MarkupInterpolated(console, text), false);
     }
 
     public static void Success(this IAnsiConsole console, string text, bool style = true)
@@ -89,7 +89,7 @@ public static partial class ConsoleExtensions
 
     public static void SuccessInterpolated(this IAnsiConsole console, FormattableString text)
     {
-        console.Success(EscapeInterpolated(text), false);
+        console.Success(MarkupInterpolated(console, text), false);
     }
 
     public static void Info(this IAnsiConsole console, string text, bool style = false)
