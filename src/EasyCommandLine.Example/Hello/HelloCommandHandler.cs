@@ -1,18 +1,17 @@
 using AutoCtor;
-using EasyCommandLine.Example.Services;
 using EasyCommandLine.Core.Interfaces;
-using Spectre.Console;
+using Microsoft.Extensions.Logging;
 
 namespace EasyCommandLine.Example.Hello;
 
 [AutoConstruct]
 public partial class HelloCommandOptionsHandler : ICommandOptionsHandler<HelloCommandOptions>
 {
-    private readonly IAnsiConsole _console;
+    private readonly ILogger<HelloCommandOptionsHandler> _logger;
 
     public Task<int> HandleAsync(HelloCommandOptions options, CancellationToken cancellationToken)
     {
-        _console.MarkupLineInterpolated($"Hello [{options.Color.ToLowerInvariant()}]{options.To}[/]!");
+        _logger.LogInformation("Hello [{Color}]{To}[/]!", options.Color.ToLowerInvariant(), options.To);
         return Task.FromResult(0);
     }
 }
