@@ -1,6 +1,6 @@
 using AutoCtor;
+using EasyCommandLine.Interfaces;
 using EasyCommandLine.Example.Services;
-using EasyCommandLine.Core.Interfaces;
 using Microsoft.Extensions.Logging;
 
 namespace EasyCommandLine.Example.Test;

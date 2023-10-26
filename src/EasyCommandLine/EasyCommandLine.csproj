@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <IsAotCompatible>true</IsAotCompatible>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <IsPackable>true</IsPackable>
+        <Authors>tcbrooks</Authors>
+        <Company>tcbrooks</Company>
+        <Description>A library to simplify creating beautiful and performant command-line apps.</Description>
+        <PackageId>EzCommandLine.Net</PackageId>
+
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <PackageReleaseNotes>Initial release</PackageReleaseNotes>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    </PropertyGroup>
+    
+    <ItemGroup>
+      <ProjectReference Include="..\EasyCommandLine.Abstractions\EasyCommandLine.Abstractions.csproj" />
+      <ProjectReference Include="..\EasyCommandLine.Extensions\EasyCommandLine.Extensions.csproj" />
+    </ItemGroup>
+
+</Project>

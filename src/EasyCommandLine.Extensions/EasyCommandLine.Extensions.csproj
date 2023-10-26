@@ -25,7 +25,7 @@
 
     <ItemGroup>
 <!--        <ProjectReference Include="..\..\..\ForkedRepos\vertical-spectreconsolelogger\src\Vertical.SpectreLogger.csproj" />-->
-        <ProjectReference Include="..\EasyCommandLine.Core\EasyCommandLine.Core.csproj"/>
+        <ProjectReference Include="..\EasyCommandLine.Abstractions\EasyCommandLine.Abstractions.csproj" />
     </ItemGroup>
 
 

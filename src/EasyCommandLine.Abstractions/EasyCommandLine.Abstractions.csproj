@@ -5,14 +5,15 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <IsAotCompatible>true</IsAotCompatible>
+        <RootNamespace>EasyCommandLine</RootNamespace>
     </PropertyGroup>
     
     <PropertyGroup>
         <IsPackable>true</IsPackable>
         <Authors>tcbrooks</Authors>
         <Company>tcbrooks</Company>
-        <Description>A library to simplify creating beautiful and performant command-line apps.</Description>
-        <PackageId>EzCommandLine.Net</PackageId>
+        <Description>Core functionality wrapping System.CommandLine command-line apps.</Description>
+        <PackageId>EzCommandLine.Net.Abstractions</PackageId>
 
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
         <PackageReleaseNotes>Initial release</PackageReleaseNotes>

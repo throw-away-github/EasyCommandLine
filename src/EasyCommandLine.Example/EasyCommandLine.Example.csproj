@@ -14,7 +14,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\EasyCommandLine.Core\EasyCommandLine.Core.csproj" />
+      <ProjectReference Include="..\EasyCommandLine\EasyCommandLine.csproj" />
+      <ProjectReference Include="..\EasyCommandLine.Abstractions\EasyCommandLine.Abstractions.csproj" />
       <ProjectReference Include="..\EasyCommandLine.Extensions\EasyCommandLine.Extensions.csproj" />
     </ItemGroup>
 

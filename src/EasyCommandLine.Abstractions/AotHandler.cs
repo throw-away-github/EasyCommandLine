@@ -1,10 +1,9 @@
 using System.CommandLine.NamingConventionBinder;
 using System.Reflection;
 using JetBrains.Annotations;
-using DynAccess = System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembersAttribute;
-using static EasyCommandLine.Core.DynamicAttributes;
+using static EasyCommandLine.DynTypes;
 
-namespace EasyCommandLine.Core;
+namespace EasyCommandLine;
 
 /// <summary>
 /// Copied from <see cref="CommandHandler"/> and modified to support AOT.

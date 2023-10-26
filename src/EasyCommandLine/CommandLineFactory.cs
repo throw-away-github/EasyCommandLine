@@ -1,8 +1,7 @@
 using System.CommandLine;
-using System.CommandLine.Help;
 using JetBrains.Annotations;
 
-namespace EasyCommandLine.Core;
+namespace EasyCommandLine;
 
 /// <summary>
 /// Factory for creating <see cref="CliConfiguration"/> instances.
@@ -16,7 +15,6 @@ public static class CommandLineFactory
     /// <param name="rootCommand">The main action that the application performs.</param>
     public static CliConfiguration CreateDefaultBuilder(CliRootCommand rootCommand)
     {
-        
         return new CliConfiguration(rootCommand);
     }
     

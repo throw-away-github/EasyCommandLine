@@ -1,7 +1,7 @@
+using EasyCommandLine;
 using EasyCommandLine.Example.Hello;
 using EasyCommandLine.Example.Services;
 using EasyCommandLine.Example.Test;
-using EasyCommandLine.Core;
 using EasyCommandLine.Extensions;
 using EasyCommandLine.Extensions.Spectre;
 using Microsoft.Extensions.DependencyInjection;

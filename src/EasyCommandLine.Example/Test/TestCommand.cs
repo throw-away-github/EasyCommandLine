@@ -1,5 +1,5 @@
 using System.CommandLine;
-using EasyCommandLine.Core;
+using EasyCommandLine;
 using EasyCommandLine.Extensions;
 
 namespace EasyCommandLine.Example.Test;

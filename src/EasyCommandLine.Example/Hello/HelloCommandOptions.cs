@@ -1,5 +1,5 @@
 using AutoCtor;
-using EasyCommandLine.Core.Interfaces;
+using EasyCommandLine.Interfaces;
 
 namespace EasyCommandLine.Example.Hello;
 
