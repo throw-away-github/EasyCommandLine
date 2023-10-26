@@ -18,9 +18,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Spectre.Console" Version="0.47.1-preview.0.24" />
-        <PackageReference Include="Spectre.Console.Json" Version="0.47.1-preview.0.12"/>
-        <PackageReference Include="vertical-spectreconsolelogger" Version="0.10.2-beta1" />
+        <PackageReference Include="Spectre.Console" Version="0.47.1-preview.0.27" />
+        <PackageReference Include="Spectre.Console.Json" Version="0.47.1-preview.0.27" />
+        <PackageReference Include="vertical-spectreconsolelogger" Version="0.10.2-dev.20230921.28" />
     </ItemGroup>
 
     <ItemGroup>

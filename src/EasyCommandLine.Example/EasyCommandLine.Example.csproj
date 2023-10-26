@@ -19,7 +19,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="AutoCtor" Version="2.0.0-alpha.4" />
+      <PackageReference Include="AutoCtor" Version="2.0.1-alpha.1" />
     </ItemGroup>
 
 
