@@ -12,7 +12,7 @@
         <IsPackable>true</IsPackable>
         <Authors>tcbrooks</Authors>
         <Company>tcbrooks</Company>
-        <Description>Core functionality wrapping System.CommandLine command-line apps.</Description>
+        <Description>Base classes and Interfaces for wrapping System.CommandLine command-line apps.</Description>
         <PackageId>EzCommandLine.Net.Abstractions</PackageId>
 
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
