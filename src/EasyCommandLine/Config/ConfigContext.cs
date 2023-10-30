@@ -62,8 +62,10 @@ public class ConfigContext<T> : IConfigContext<T> where T : new()
             return;
         }
         
-        await using var write = _file.OpenWrite();
+        // clear config file
+        await using var write = _file.Exists ? _file.Open(FileMode.Truncate, FileAccess.Write) : _file.Create();
         await JsonSerializer.SerializeAsync(write, _config, _typeInfo, token);
+        await write.FlushAsync(token);
     }
 
     private async Task<T> CreateConfig(CancellationToken token = default)
