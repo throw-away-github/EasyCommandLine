@@ -25,20 +25,7 @@ public static class CommandLineFactory
     /// <param name="commands">The sub actions that the application performs.</param>
     public static CliConfiguration CreateDefaultBuilder(string description, params CliCommand[] commands)
     {
-        var rootCommand = new CliRootCommand(description)
-        {
-            TreatUnmatchedTokensAsErrors = true,
-            Validators =
-            {
-                result =>
-                {
-                    if (!result.Children.Any())
-                    {
-                        result.AddError("A command is required.");
-                    }
-                }
-            }
-        };
+        var rootCommand = new CliRootCommand(description);
         
         foreach (var command in commands)
         {

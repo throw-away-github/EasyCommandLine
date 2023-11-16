@@ -40,7 +40,7 @@ public static class ServiceCollectionExtensions
     
     public static ILoggingBuilder AddAnsiLogger(
         this ILoggingBuilder logging,
-        Action<AnsiLoggerOptionsBuilder>? configureOptions)
+        Action<AnsiLoggerOptionsBuilder>? configureOptions = null)
     {
         var services = logging.Services;
         var optionsBuilder = new AnsiLoggerOptionsBuilder(services);
