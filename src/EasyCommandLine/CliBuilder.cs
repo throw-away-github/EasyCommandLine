@@ -3,6 +3,7 @@ using System.CommandLine.Hosting;
 using System.Text.Json.Serialization;
 using EasyCommandLine.Extensions;
 using EasyCommandLine.Logging;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
@@ -151,7 +152,18 @@ public class CliBuilder
     /// <inheritdoc cref="CliConfigurationExtensions.RunAsync(CliConfiguration,System.String[])"/>
     public Task<int> RunAsync(string[] args)
     {
-        _configuration.UseHost(_ => Host);
+        Host.ConfigureServices(services =>
+        {
+            services.Configure<InvocationLifetimeOptions>(options => 
+                options.SuppressStatusMessages = true);
+            services.AddSingleton(services);
+            services.AddSingleton(AnsiConsole.Console);
+        });
+
+        _configuration.UseHost(filteredArgs => Host
+            .ConfigureHostConfiguration(config => config.AddCommandLine(filteredArgs))
+            .ConfigureAppConfiguration((_, config) => config.AddCommandLine(filteredArgs)));
+
         var rootCommand = _configuration.RootCommand;
 
         if (IsOptionSet(RunOption.ShowHelpForNoArgs))
