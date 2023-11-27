@@ -1,24 +1,21 @@
+using EasyCommandLine;
 using EasyCommandLine.Example.Hello;
 using EasyCommandLine.Example.Services;
 using EasyCommandLine.Example.Test;
-using EasyCommandLine.Core;
-using EasyCommandLine.Extensions;
-using EasyCommandLine.Extensions.Spectre;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 
-var builder = CommandLineFactory.CreateDefaultBuilder(
-    description: "A simple command line application", 
-    new HelloCommand(), new TestCommand());
+var builder = CliBuilder.Create(description: "A simple command line application");
 
 builder.AddTitle("EzCommand");
-builder.UseDependencyInjection(hostBuilder =>
+builder.UseAnsiLogging();
+
+builder.AddCommand<HelloCommand>();
+builder.AddCommand<TestCommand>();
+builder.DefaultCommand<HelloCommand>();
+
+builder.Host.ConfigureServices((_, services) =>
 {
-    hostBuilder.ConfigureServices(services =>
-    {
-        services.AddSingleton<TestService>();
-    });
-    hostBuilder.ConfigureLogging(logging => logging.ConfigurePrettyConsole());
+    services.AddSingleton<TestService>();
 });
 
 return await builder.RunAsync(args);

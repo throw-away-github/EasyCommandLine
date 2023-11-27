@@ -78,7 +78,8 @@ public static class CliConfigurationExtensions
         {
             hostBuilder.ConfigureServices((_, services) =>
             {
-                services.SuppressStatusMessages();
+                services.Configure<InvocationLifetimeOptions>(options => 
+                    options.SuppressStatusMessages = true);
                 services.AddSingleton(services);
                 services.AddSingleton(AnsiConsole.Console);
             });

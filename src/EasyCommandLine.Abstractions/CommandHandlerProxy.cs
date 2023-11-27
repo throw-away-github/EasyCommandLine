@@ -1,12 +1,11 @@
 using System.CommandLine.NamingConventionBinder;
-using EasyCommandLine.Core.Interfaces;
+using EasyCommandLine.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using DynAccess = System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembersAttribute;
-using static EasyCommandLine.Core.DynamicAttributes;
+using static EasyCommandLine.DynTypes;
 
-namespace EasyCommandLine.Core;
+namespace EasyCommandLine;
 
 public static class CommandHandlerProxy
 {

@@ -14,12 +14,13 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\EasyCommandLine.Core\EasyCommandLine.Core.csproj" />
+      <ProjectReference Include="..\EasyCommandLine\EasyCommandLine.csproj" />
+      <ProjectReference Include="..\EasyCommandLine.Abstractions\EasyCommandLine.Abstractions.csproj" />
       <ProjectReference Include="..\EasyCommandLine.Extensions\EasyCommandLine.Extensions.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="AutoCtor" Version="2.0.1-alpha.1" />
+      <PackageReference Include="AutoCtor" Version="2.1.0-rc.1" />
     </ItemGroup>
 
 

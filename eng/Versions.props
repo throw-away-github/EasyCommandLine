@@ -8,7 +8,7 @@
     <MajorVersion>1</MajorVersion>
     <MinorVersion>0</MinorVersion>
     <PreReleaseVersionLabel>beta</PreReleaseVersionLabel>
-    <PreReleaseVersionIteration>4</PreReleaseVersionIteration>
+    <PreReleaseVersionIteration>6</PreReleaseVersionIteration>
     <DotNetUseShippingVersions>true</DotNetUseShippingVersions>
   </PropertyGroup>
   <!--Package versions-->

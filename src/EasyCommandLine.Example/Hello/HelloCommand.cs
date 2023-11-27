@@ -1,6 +1,5 @@
 using System.CommandLine;
 using System.CommandLine.Parsing;
-using EasyCommandLine.Core;
 using EasyCommandLine.Extensions;
 
 namespace EasyCommandLine.Example.Hello;

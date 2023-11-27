@@ -1,8 +1,7 @@
 using System.CommandLine;
-using System.CommandLine.Help;
 using JetBrains.Annotations;
 
-namespace EasyCommandLine.Core;
+namespace EasyCommandLine;
 
 /// <summary>
 /// Factory for creating <see cref="CliConfiguration"/> instances.
@@ -16,7 +15,6 @@ public static class CommandLineFactory
     /// <param name="rootCommand">The main action that the application performs.</param>
     public static CliConfiguration CreateDefaultBuilder(CliRootCommand rootCommand)
     {
-        
         return new CliConfiguration(rootCommand);
     }
     
@@ -27,20 +25,7 @@ public static class CommandLineFactory
     /// <param name="commands">The sub actions that the application performs.</param>
     public static CliConfiguration CreateDefaultBuilder(string description, params CliCommand[] commands)
     {
-        var rootCommand = new CliRootCommand(description)
-        {
-            TreatUnmatchedTokensAsErrors = true,
-            Validators =
-            {
-                result =>
-                {
-                    if (!result.Children.Any())
-                    {
-                        result.AddError("A command is required.");
-                    }
-                }
-            }
-        };
+        var rootCommand = new CliRootCommand(description);
         
         foreach (var command in commands)
         {

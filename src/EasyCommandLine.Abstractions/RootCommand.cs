@@ -1,8 +1,7 @@
-using EasyCommandLine.Core.Interfaces;
-using DynAccess = System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembersAttribute;
-using static EasyCommandLine.Core.DynamicAttributes;
+using EasyCommandLine.Interfaces;
+using static EasyCommandLine.DynTypes;
 
-namespace EasyCommandLine.Core;
+namespace EasyCommandLine;
 
 /// <summary>
 /// Represents the main action that the application performs.

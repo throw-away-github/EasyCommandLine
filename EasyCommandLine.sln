@@ -12,15 +12,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Directory.Build.targets = Directory.Build.targets
 		publish.sh = publish.sh
 		eng\Versions.props = eng\Versions.props
+		.gitattributes = .gitattributes
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1DD382AC-40C7-4886-AFB1-F2AF42D8867B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyCommandLine.Core", "src\EasyCommandLine.Core\EasyCommandLine.Core.csproj", "{FBCB4B61-CD9A-4465-A78D-5E9CCB2C791D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyCommandLine.Abstractions", "src\EasyCommandLine.Abstractions\EasyCommandLine.Abstractions.csproj", "{FBCB4B61-CD9A-4465-A78D-5E9CCB2C791D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyCommandLine.Example", "src\EasyCommandLine.Example\EasyCommandLine.Example.csproj", "{6C80C8AA-FAF6-45B1-B748-EA1A65E0F566}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyCommandLine.Extensions", "src\EasyCommandLine.Extensions\EasyCommandLine.Extensions.csproj", "{4368A33F-246E-41C7-A790-1573865D8CDA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyCommandLine", "src\EasyCommandLine\EasyCommandLine.csproj", "{00EBDFEB-ADA0-4EC1-89A5-FD5F0F7B4696}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,6 +43,10 @@ Global
 		{4368A33F-246E-41C7-A790-1573865D8CDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4368A33F-246E-41C7-A790-1573865D8CDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4368A33F-246E-41C7-A790-1573865D8CDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00EBDFEB-ADA0-4EC1-89A5-FD5F0F7B4696}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00EBDFEB-ADA0-4EC1-89A5-FD5F0F7B4696}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00EBDFEB-ADA0-4EC1-89A5-FD5F0F7B4696}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00EBDFEB-ADA0-4EC1-89A5-FD5F0F7B4696}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -51,5 +58,6 @@ Global
 		{FBCB4B61-CD9A-4465-A78D-5E9CCB2C791D} = {1DD382AC-40C7-4886-AFB1-F2AF42D8867B}
 		{6C80C8AA-FAF6-45B1-B748-EA1A65E0F566} = {1DD382AC-40C7-4886-AFB1-F2AF42D8867B}
 		{4368A33F-246E-41C7-A790-1573865D8CDA} = {1DD382AC-40C7-4886-AFB1-F2AF42D8867B}
+		{00EBDFEB-ADA0-4EC1-89A5-FD5F0F7B4696} = {1DD382AC-40C7-4886-AFB1-F2AF42D8867B}
 	EndGlobalSection
 EndGlobal

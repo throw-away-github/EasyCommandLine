@@ -1,4 +1,9 @@
 ###############################################################################
+# Linguist settings
+###############################################################################
+eng/** linguist-vendored
+
+###############################################################################
 # Set default behavior to:
 #   automatically normalize line endings on check-in, and
 #   convert to Windows-style line endings on check-out

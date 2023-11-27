@@ -1,7 +1,6 @@
-using DynAccess = System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembersAttribute;
-using static EasyCommandLine.Core.DynamicAttributes;
+using static EasyCommandLine.DynTypes;
 
-namespace EasyCommandLine.Core.Interfaces;
+namespace EasyCommandLine.Interfaces;
 
 /// <summary>
 /// Performs an action when the associated command is invoked on the command line.
