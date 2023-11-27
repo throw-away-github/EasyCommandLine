@@ -40,11 +40,6 @@ public class CliBuilder
     {
         return Create(CommandLineFactory.CreateDefaultBuilder(description));
     }
-    
-    public static CliBuilder Create(string description, params CliCommand[] commands)
-    {
-        return Create(CommandLineFactory.CreateDefaultBuilder(description, commands));
-    }
 
     /// <inheritdoc cref="Microsoft.Extensions.Hosting.IHostBuilder"/>
     public IHostBuilder Host { get; }
