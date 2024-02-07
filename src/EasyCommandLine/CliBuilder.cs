@@ -192,10 +192,10 @@ public class CliBuilder
             {
                 return await _configuration.RunAsync(args);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 var logger = GetLogger();
-                logger.LogError("Unhandled exception");
+                logger.LogError(ex, "Unhandled exception");
                 return 1;
             }
         }
